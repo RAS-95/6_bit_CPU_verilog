@@ -1,0 +1,88 @@
+#! /opt/homebrew/Cellar/icarus-verilog/11.0/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/system.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/va_math.vpi";
+S_0x11c7053c0 .scope module, "controlUnit" "controlUnit" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "OPCODE";
+    .port_info 1 /INPUT 1 "CF";
+    .port_info 2 /INPUT 1 "ZF";
+    .port_info 3 /INPUT 1 "SF";
+    .port_info 4 /OUTPUT 2 "OP";
+    .port_info 5 /OUTPUT 1 "JMP_SEL";
+    .port_info 6 /OUTPUT 1 "IM_SEL";
+    .port_info 7 /OUTPUT 1 "REG_EN";
+L_0x11c720660 .functor NOT 1, L_0x11c7205c0, C4<0>, C4<0>, C4<0>;
+L_0x11c7207b0 .functor AND 1, L_0x11c720660, L_0x11c720710, C4<1>, C4<1>;
+L_0x11c720a00 .functor NOT 1, L_0x11c7208e0, C4<0>, C4<0>, C4<0>;
+L_0x11c720b60 .functor NOT 1, L_0x11c720a70, C4<0>, C4<0>, C4<0>;
+L_0x11c720c10 .functor AND 1, L_0x11c720a00, L_0x11c720b60, C4<1>, C4<1>;
+L_0x11c720d50 .functor OR 1, L_0x11c7207b0, L_0x11c720c10, C4<0>, C4<0>;
+L_0x11c720fc0 .functor NOT 1, L_0x11c720ee0, C4<0>, C4<0>, C4<0>;
+L_0x11c7210b0 .functor AND 1, L_0x11c720e40, L_0x11c720fc0, C4<1>, C4<1>;
+L_0x11c721340 .functor NOT 1, L_0x11c7211a0, C4<0>, C4<0>, C4<0>;
+L_0x11c7214f0 .functor NOT 1, L_0x11c721400, C4<0>, C4<0>, C4<0>;
+L_0x11c721560 .functor AND 1, L_0x11c721340, L_0x11c7214f0, C4<1>, C4<1>;
+L_0x11c721710 .functor NOT 1, L_0x11c721670, C4<0>, C4<0>, C4<0>;
+L_0x11c721880 .functor NOT 1, L_0x11c721780, C4<0>, C4<0>, C4<0>;
+L_0x11c721960 .functor AND 1, L_0x11c721710, L_0x11c721880, C4<1>, C4<1>;
+o0x120030010 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x11c721a30 .functor AND 1, L_0x11c721960, o0x120030010, C4<1>, C4<1>;
+L_0x11c7218f0 .functor OR 1, L_0x11c721560, L_0x11c721a30, C4<0>, C4<0>;
+L_0x11c721c00 .functor AND 1, L_0x11c7210b0, L_0x11c7218f0, C4<1>, C4<1>;
+v0x11c706810_0 .net "CF", 0 0, o0x120030010;  0 drivers
+v0x11c71ee10_0 .net "IM_SEL", 0 0, L_0x11c7207b0;  1 drivers
+v0x11c71eeb0_0 .net "JMP_SEL", 0 0, L_0x11c721c00;  1 drivers
+v0x11c71ef40_0 .net "OP", 1 0, L_0x11c720520;  1 drivers
+o0x1200300d0 .functor BUFZ 4, C4<zzzz>; HiZ drive
+v0x11c71eff0_0 .net "OPCODE", 3 0, o0x1200300d0;  0 drivers
+v0x11c71f0e0_0 .net "REG_EN", 0 0, L_0x11c720d50;  1 drivers
+o0x120030130 .functor BUFZ 1, C4<z>; HiZ drive
+v0x11c71f180_0 .net "SF", 0 0, o0x120030130;  0 drivers
+o0x120030160 .functor BUFZ 1, C4<z>; HiZ drive
+v0x11c71f220_0 .net "ZF", 0 0, o0x120030160;  0 drivers
+v0x11c71f2c0_0 .net *"_ivl_11", 0 0, L_0x11c7208e0;  1 drivers
+v0x11c71f3d0_0 .net *"_ivl_12", 0 0, L_0x11c720a00;  1 drivers
+v0x11c71f480_0 .net *"_ivl_15", 0 0, L_0x11c720a70;  1 drivers
+v0x11c71f530_0 .net *"_ivl_16", 0 0, L_0x11c720b60;  1 drivers
+v0x11c71f5e0_0 .net *"_ivl_18", 0 0, L_0x11c720c10;  1 drivers
+v0x11c71f690_0 .net *"_ivl_23", 0 0, L_0x11c720e40;  1 drivers
+v0x11c71f740_0 .net *"_ivl_25", 0 0, L_0x11c720ee0;  1 drivers
+v0x11c71f7f0_0 .net *"_ivl_26", 0 0, L_0x11c720fc0;  1 drivers
+v0x11c71f8a0_0 .net *"_ivl_28", 0 0, L_0x11c7210b0;  1 drivers
+v0x11c71fa30_0 .net *"_ivl_3", 0 0, L_0x11c7205c0;  1 drivers
+v0x11c71fac0_0 .net *"_ivl_31", 0 0, L_0x11c7211a0;  1 drivers
+v0x11c71fb70_0 .net *"_ivl_32", 0 0, L_0x11c721340;  1 drivers
+v0x11c71fc20_0 .net *"_ivl_35", 0 0, L_0x11c721400;  1 drivers
+v0x11c71fcd0_0 .net *"_ivl_36", 0 0, L_0x11c7214f0;  1 drivers
+v0x11c71fd80_0 .net *"_ivl_38", 0 0, L_0x11c721560;  1 drivers
+v0x11c71fe30_0 .net *"_ivl_4", 0 0, L_0x11c720660;  1 drivers
+v0x11c71fee0_0 .net *"_ivl_41", 0 0, L_0x11c721670;  1 drivers
+v0x11c71ff90_0 .net *"_ivl_42", 0 0, L_0x11c721710;  1 drivers
+v0x11c720040_0 .net *"_ivl_45", 0 0, L_0x11c721780;  1 drivers
+v0x11c7200f0_0 .net *"_ivl_46", 0 0, L_0x11c721880;  1 drivers
+v0x11c7201a0_0 .net *"_ivl_48", 0 0, L_0x11c721960;  1 drivers
+v0x11c720250_0 .net *"_ivl_50", 0 0, L_0x11c721a30;  1 drivers
+v0x11c720300_0 .net *"_ivl_52", 0 0, L_0x11c7218f0;  1 drivers
+v0x11c7203b0_0 .net *"_ivl_7", 0 0, L_0x11c720710;  1 drivers
+L_0x11c720520 .part o0x1200300d0, 0, 2;
+L_0x11c7205c0 .part o0x1200300d0, 3, 1;
+L_0x11c720710 .part o0x1200300d0, 2, 1;
+L_0x11c7208e0 .part o0x1200300d0, 3, 1;
+L_0x11c720a70 .part o0x1200300d0, 2, 1;
+L_0x11c720e40 .part o0x1200300d0, 3, 1;
+L_0x11c720ee0 .part o0x1200300d0, 2, 1;
+L_0x11c7211a0 .part o0x1200300d0, 1, 1;
+L_0x11c721400 .part o0x1200300d0, 0, 1;
+L_0x11c721670 .part o0x1200300d0, 1, 1;
+L_0x11c721780 .part o0x1200300d0, 0, 1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "controlUnit.v";
